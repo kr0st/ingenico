@@ -1,7 +1,7 @@
 package lv.javaguru.courses.ingenico.lecture3.hometasks.collections.map.cards;
 
-public class Account {
-
+public class Account implements Identifyable
+{
     private int id;
     private String contractNumber;
 
@@ -10,6 +10,7 @@ public class Account {
         this.contractNumber = contractNumber;
     }
 
+    @Override
     public int getId() {
         return id;
     }
@@ -24,5 +25,30 @@ public class Account {
 
     public void setContractNumber(String contractNumber) {
         this.contractNumber = contractNumber;
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return contractNumber.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (o instanceof Account)
+        {
+            Account that = (Account)o;
+            return this.contractNumber.equals(that.getContractNumber());
+        }
+        else
+            return false;
+    }
+
+    @Override
+    public String toString()
+    {
+        String result = new String("id: ");
+        return result.concat(String.valueOf(id)).concat(", contract#: ").concat(contractNumber);
     }
 }

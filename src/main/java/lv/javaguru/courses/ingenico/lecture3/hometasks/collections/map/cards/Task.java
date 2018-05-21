@@ -1,5 +1,10 @@
 package lv.javaguru.courses.ingenico.lecture3.hometasks.collections.map.cards;
 
+import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class Task {
 
     public static void main(String[] args) {
@@ -26,7 +31,35 @@ public class Task {
         * 5. use Map#get(account) to retrieve List of credit cards
         */
 
+        AccountRepository accountRepo = new AccountRepository();
+        accountRepo.save(new Account(12, "abc-def"));
+        accountRepo.save(new Account(54, "120-ter"));
+        accountRepo.save(new Account(78, "29a-six"));
 
+//        List<Identifyable> list = accountRepo.findAll();
+//        for (Object o : list)
+//            System.out.println(o.toString());
+
+        CreditCardRepository cardRepo = new CreditCardRepository();
+        cardRepo.save(new CreditCard(777, "aslkjdhfliuytoiryt7887", 78, new BigDecimal(45.58)));
+        cardRepo.save(new CreditCard(898, "87hfwer893457hfdjngejl", 78, new BigDecimal(1.04)));
+        cardRepo.save(new CreditCard(371, "mnb12u9984ndmfdsfdg4iu", 54, new BigDecimal(-89)));
+        cardRepo.save(new CreditCard(654, "djsfewrftyyy78457457hh", 12, new BigDecimal(0)));
+
+        HashMap<Account, List<CreditCard>> data = new HashMap<Account, List<CreditCard>>();
+
+        for (Object o : accountRepo.findAll())
+        {
+            Account a = (Account)o;
+            Object cl = cardRepo.findByAccountId(a.getId());
+            List<CreditCard> cards = (List<CreditCard>)cl;
+            data.put(a, cards);
+        }
+
+        System.out.println(data.get(new Account(78, "29a-six")).toString());
+//        list = cardRepo.findAll();
+//        for (Object o : list)
+//            System.out.println(o.toString());
     }
 
 }
