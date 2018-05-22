@@ -6,11 +6,11 @@ import java.util.List;
 
 import static lv.javaguru.courses.ingenico.lecture3.hometasks.collections.map.cards.Searcher.findOneBy;
 
-public class Repository
+public class Repository <T extends Identifyable>
 {
-    protected final List<Identifyable> data = new ArrayList<>();
+    protected final List<T> data = new ArrayList<>();
 
-    public void save(Identifyable element)
+    public void save(T element)
     {
         if (findById(element.getId()) != null)
         {
@@ -19,10 +19,10 @@ public class Repository
         data.add(element);
     }
 
-    public Identifyable findById(int id) {
+    public T findById(int id) {
         return findOneBy(data, element -> element.getId() == id);
     }
-    public List<Identifyable> findAll(){
+    public List<T> findAll(){
         return Collections.unmodifiableList(data);
     }
 }

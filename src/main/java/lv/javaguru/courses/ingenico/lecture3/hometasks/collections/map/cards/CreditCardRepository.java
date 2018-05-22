@@ -7,11 +7,10 @@ import java.util.List;
 import static lv.javaguru.courses.ingenico.lecture3.hometasks.collections.map.cards.Searcher.findManyBy;
 import static lv.javaguru.courses.ingenico.lecture3.hometasks.collections.map.cards.Searcher.findOneBy;
 
-public class CreditCardRepository extends Repository
+public class CreditCardRepository extends Repository <CreditCard>
 {
     public List<CreditCard> findByAccountId(int accountId)
     {
-        Object list = findManyBy(data, card -> {CreditCard c = (CreditCard)card; return (c.getAccountId() == accountId);});
-        return (List<CreditCard>)list;
+        return findManyBy(data, card -> {CreditCard c = (CreditCard)card; return (c.getAccountId() == accountId);});
     }
 }

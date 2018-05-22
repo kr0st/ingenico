@@ -6,9 +6,9 @@ import java.util.List;
 
 import static lv.javaguru.courses.ingenico.lecture3.hometasks.collections.map.cards.Searcher.findOneBy;
 
-public class AccountRepository extends Repository
+public class AccountRepository extends Repository <Account>
 {
     public Account findByContractNumber(String contractNumber) {
-        return (Account)findOneBy(data, account -> { Account a = (Account)account; return a.getContractNumber().equals(contractNumber);});
+        return findOneBy(data, account -> { Account a = account; return a.getContractNumber().equals(contractNumber);});
     }
 }
