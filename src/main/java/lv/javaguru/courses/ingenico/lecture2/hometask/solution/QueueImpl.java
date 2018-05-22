@@ -42,7 +42,6 @@ public class QueueImpl<E> implements Queue<E> {
         return head != null ? head.item : null;
     }
 
-    @Override
     public void addAll(Queue<? extends E> queue) {
         if (queue instanceof QueueImpl){
             @SuppressWarnings("unchecked")

@@ -47,7 +47,7 @@ public interface Queue<E> extends Iterable<E> {
      *
      * @param queue the queue with elements to add
      * */
-    void addAll(Queue<? extends E> queue);
+//    void addAll(Queue<? extends E> queue);
 
     /**
      * TODO : fix method signature.

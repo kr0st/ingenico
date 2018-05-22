@@ -1,5 +1,6 @@
 package lv.javaguru.courses.ingenico.lecture3.lists;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -19,6 +20,7 @@ public class ArrayListVsLinkedList {
         System.out.println("\n--- Add middle");
         testAddMiddle(new ArrayList<>());
         testAddMiddle(new LinkedList<>());
+
     }
 
     private static void testAddLast(List<Integer> integers){
