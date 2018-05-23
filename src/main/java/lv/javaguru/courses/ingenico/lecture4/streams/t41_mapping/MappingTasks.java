@@ -18,7 +18,12 @@ public class MappingTasks {
 
         //todo : select all unique users creation dates
         //todo : select all unique users creation dates
-        Set<LocalDate> allCreationDates = null;
+        Set<LocalDateTime> allCreationDates = users.stream()
+                .map(user -> user.getCreatedAt())
+                .collect(Collectors.toSet());
+
+        allCreationDates.stream()
+                .forEach(time -> System.out.println(time.toString()));
 
         //todo : select all users facebook ids, filter null values
         List<String> allFacebookIds = null;

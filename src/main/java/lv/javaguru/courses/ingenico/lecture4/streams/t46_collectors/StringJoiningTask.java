@@ -4,6 +4,7 @@ import lv.javaguru.courses.ingenico.lecture4.common.User;
 import lv.javaguru.courses.ingenico.lecture4.common.UserRepository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class StringJoiningTask {
 
@@ -11,7 +12,10 @@ public class StringJoiningTask {
         List<User> users = UserRepository.getInstance().getAll();
 
         //todo: join all nicknames separated by ", " (john, peter, jose ...)
-        String nicknames = null;
+        String nicknames = users.stream()
+                .map(user -> user.getNickname())
+                .collect(Collectors.joining(", "));
+
         System.out.println(nicknames);
     }
 
