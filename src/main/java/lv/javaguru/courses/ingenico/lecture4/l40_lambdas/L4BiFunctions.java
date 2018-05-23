@@ -1,6 +1,7 @@
 package lv.javaguru.courses.ingenico.lecture4.l40_lambdas;
 
 import java.util.function.BiFunction;
+import java.util.function.Predicate;
 
 public class L4BiFunctions {
 

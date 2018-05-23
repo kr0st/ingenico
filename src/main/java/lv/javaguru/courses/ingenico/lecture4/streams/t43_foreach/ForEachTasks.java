@@ -11,8 +11,9 @@ public class ForEachTasks {
     //todo : rewrite methods with streams
     public static void main(String[] args) {
         List<User> users = UserRepository.getInstance().getAll();
-        disableUsers(users);
-        printUsersNicknames(users);
+
+        users.stream().parallel().forEach(user -> user.setActive(false));
+        users.forEach(System.out::println);
     }
 
     static void disableUsers(List<User> users){

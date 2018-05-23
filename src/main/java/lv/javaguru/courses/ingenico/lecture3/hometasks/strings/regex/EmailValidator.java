@@ -24,7 +24,7 @@ public class EmailValidator {
     *  - digits 0 to 9
     *  - hyphen - (provided that it is not the first or last character)
     *  - max length 100
-    * */
+    * */ 
 
     public void validate(String email) {
         throw new IllegalArgumentException("email not valid : " + email);

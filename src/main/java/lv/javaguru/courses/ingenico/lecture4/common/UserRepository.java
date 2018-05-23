@@ -17,7 +17,8 @@ public class UserRepository {
 
     private final Set<User> users;
 
-    private UserRepository(Set<User> users) {
+    //for singleton in must be private!
+    public UserRepository(Set<User> users) {
         this.users = users;
     }
 
@@ -72,15 +73,18 @@ public class UserRepository {
     // this approach is based on enum
 
     private enum Singleton {
-        INSTANCE(new UserRepository(new HashSet<User>() {{
-            add(new User("john89", LocalDateTime.now().minusDays(1), true));
-            add(new User("jose", LocalDateTime.now().minusDays(4), true, "jose-facebook", null));
-            add(new User("toe", LocalDateTime.now().minusDays(4), true, null, "toe-twitter"));
-            add(new User("digger", LocalDateTime.now().minusDays(10), true));
-            add(new User("nessie", LocalDateTime.now().minusDays(2), true, "nessie-facebook", "nessie-twitter"));
-            add(new User("freak", LocalDateTime.now().minusDays(3), false));
-            add(new User("odmen", LocalDateTime.now().minusDays(3), true));
-        }}));
+        INSTANCE(new UserRepository(
+                new HashSet<User>() {
+                    {
+                        add(new User("john89", LocalDateTime.now().minusDays(1), true));
+                        add(new User("jose", LocalDateTime.now().minusDays(4), true, "jose-facebook", null));
+                        add(new User("toe", LocalDateTime.now().minusDays(4), true, null, "toe-twitter"));
+                        add(new User("digger", LocalDateTime.now().minusDays(10), true));
+                        add(new User("nessie", LocalDateTime.now().minusDays(2), true, "nessie-facebook", "nessie-twitter"));
+                        add(new User("freak", LocalDateTime.now().minusDays(3), false));
+                        add(new User("odmen", LocalDateTime.now().minusDays(3), true));
+                    }
+                }));
 
         private UserRepository userRepository;
 

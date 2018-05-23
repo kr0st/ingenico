@@ -43,11 +43,13 @@ public class Task {
 
         Map<Account, List<CreditCard>> accountCards = new HashMap<>();
         List<Account> allAccounts = accountRepository.findAll();
+
         for (CreditCard card : cardRepository.findAll()) {
             for (Account account : allAccounts) {
                 if (account.getId() == card.getAccountId()) {
                     if (accountCards.containsKey(account)) {
-                        accountCards.get(account).add(card);
+                        List<CreditCard> creditCards = accountCards.get(account);
+                        creditCards.add(card);
                     } else {
                         List<CreditCard> cards = new ArrayList<>();
                         cards.add(card);

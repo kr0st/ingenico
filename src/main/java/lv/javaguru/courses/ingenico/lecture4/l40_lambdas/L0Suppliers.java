@@ -17,9 +17,14 @@ public class L0Suppliers {
         //todo : replace generateNumber with lambda
         Supplier<Integer> numberGenerator = () -> new Random().nextInt();
 
+        L0Suppliers l0Suppliers = new L0Suppliers();
+        Supplier<Integer> numberGenerator2 = l0Suppliers::generateNumber;
+        Integer integer = numberGenerator.get();
+
         //todo : replace userRepository.getAll() with method reference
         List<User> allUsers = userRepository.getAll();
         Supplier<List<User>> allUsersFinder = userRepository::getAll;
+        List<User> users = allUsersFinder.get();
 
         //todo : reuse getAllUsersNicknames() as method reference
         Supplier<List<String>> allNicknamesFinder = L0Suppliers::getAllUsersNicknames;

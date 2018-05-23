@@ -12,7 +12,7 @@ public class StringJoining {
         strings.add("world");
         strings.add("!");
 
-        String result = null;
+        String result = strings.stream().collect(Collectors.joining(","));
 
         System.out.println(result);
     }

@@ -31,17 +31,13 @@ public class Account {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Account
-                account = (Account) o;
+        Account account = (Account) o;
 
-        if (id != account.id) return false;
         return contractNumber != null ? contractNumber.equals(account.contractNumber) : account.contractNumber == null;
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (contractNumber != null ? contractNumber.hashCode() : 0);
-        return result;
+        return contractNumber != null ? contractNumber.hashCode() : 0;
     }
 }

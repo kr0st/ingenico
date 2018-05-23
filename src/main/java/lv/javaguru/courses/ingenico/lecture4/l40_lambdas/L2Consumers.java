@@ -19,6 +19,8 @@ public class L2Consumers {
 
         //todo : replace createUser with method reference
         Consumer<String> userCreator = L2Consumers::createUser;
+
+        Consumer<String> userCreator2 = L2Consumers::createUser;
     }
 
     private static void printDate(LocalDate date) {

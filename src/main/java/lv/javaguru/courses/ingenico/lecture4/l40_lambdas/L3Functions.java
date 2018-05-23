@@ -13,7 +13,7 @@ import java.util.function.Function;
 
 public class L3Functions {
 
-    private static UserRepository userRepository = new UserRepository();
+    private static UserRepository userRepository = UserRepository.getInstance();
 
     public static void main(String[] args) {
         //todo : replace formatDate with method reference

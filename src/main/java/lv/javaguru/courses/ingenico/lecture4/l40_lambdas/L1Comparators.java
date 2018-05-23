@@ -13,8 +13,7 @@ public class L1Comparators {
 
         //todo : sort by nickname with lambda
         System.out.println("---- sorted by nickname ---");
-        Comparator<User> byNicknameComparator =
-                (user1, user2) -> user1.getNickname().compareTo(user2.getNickname());
+        Comparator<User> byNicknameComparator = Comparator.comparing(User::getNickname);
         users.sort(byNicknameComparator);
         System.out.println(users);
 

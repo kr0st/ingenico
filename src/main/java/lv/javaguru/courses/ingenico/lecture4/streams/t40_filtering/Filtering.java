@@ -1,8 +1,11 @@
 package lv.javaguru.courses.ingenico.lecture4.streams.t40_filtering;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 public class Filtering {
 

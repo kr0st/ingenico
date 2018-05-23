@@ -50,4 +50,22 @@ public class CreditCard {
     public void setAvailableBalance(BigDecimal availableBalance) {
         this.availableBalance = availableBalance;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        CreditCard that = (CreditCard) o;
+
+        if (accountId != that.accountId) return false;
+        return panHash != null ? panHash.equals(that.panHash) : that.panHash == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = panHash != null ? panHash.hashCode() : 0;
+        result = 31 * result + accountId;
+        return result;
+    }
 }

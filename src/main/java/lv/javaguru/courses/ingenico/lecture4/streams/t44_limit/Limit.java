@@ -19,6 +19,7 @@ public class Limit {
                                           .filter(i -> i > 0)
                                           .limit(3)
                                           .collect(Collectors.toList());
+
         positives.forEach(System.out::println);
     }
 

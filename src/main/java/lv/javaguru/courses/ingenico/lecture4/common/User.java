@@ -14,6 +14,10 @@ public class User {
 
     private boolean active;
 
+    public User(){
+        this.nickname = "new";
+    }
+
     public User(String nickname, LocalDateTime createdAt, boolean active) {
         this.nickname = nickname;
         this.createdAt = createdAt;
