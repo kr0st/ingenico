@@ -9,7 +9,7 @@ public class MultiCounter {
     private final Object writeCountLock = new Object();
 
     public void incerementRead(){
-        synchronized (readCountLock){
+        synchronized (writeCountLock){
             readCount++;
         }
     }

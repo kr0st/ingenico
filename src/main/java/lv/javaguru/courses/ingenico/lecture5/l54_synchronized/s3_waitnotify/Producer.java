@@ -40,7 +40,7 @@ public class Producer implements Runnable {
             }
             messageQueue.add(new Message<>(UUID.randomUUID(), ++counter));
             log.debug("produced : {}", counter);
-            messageQueue.notifyAll();
+            messageQueue.notify();
         }
     }
 }
