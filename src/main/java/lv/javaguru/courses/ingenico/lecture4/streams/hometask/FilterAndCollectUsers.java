@@ -38,6 +38,7 @@ public class FilterAndCollectUsers {
         UserComparator cmp = new UserComparator();
         List<User> users = repository.getAll();
         return users.stream()
+                .filter(user -> user.isActive())
                 .sorted(cmp::compare)
                 .collect(Collectors.groupingBy(user -> user.getNickname().toCharArray()[0]));
     }
