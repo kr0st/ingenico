@@ -1,15 +1,18 @@
 Task :
 
+By default you cannot change Runnable in Thread after creation.
+But it is possible to implement this logic by extending Thread class
 
-Write class ReusableThread with method
+Write class ReusableThread which extends Thread and has method
 public void setRunnable(Runnable runnable)
+to set and execute new Runnable
 
 1. If setRunnable invoked during current runnable execution then IllegalStateException must be thrown
 2. If additional methods needed to check state before setting new runnable then create them
 3. If thread finished current runnable execution it must be switched into state WAIT
     so use wait -> notify concept to wake up ReusableThread to execute new runnable
 
-    
+
 If this task to simple for you
 Write FixedThreadPool with
 Queue<Runnable> taskQueue
