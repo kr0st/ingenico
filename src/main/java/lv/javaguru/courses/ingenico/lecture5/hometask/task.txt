@@ -11,7 +11,7 @@ to set and execute new Runnable
 2. If additional methods needed to check state before setting new runnable then create them
 3. If thread finished current runnable execution it must be switched into state WAIT
     so use wait -> notify concept to wake up ReusableThread to execute new runnable
-
+4. Don't forget write closing thread by interrupted flag
 
 If this task to simple for you
 Write FixedThreadPool with
