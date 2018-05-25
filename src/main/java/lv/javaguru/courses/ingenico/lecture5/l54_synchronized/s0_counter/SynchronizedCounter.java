@@ -4,11 +4,11 @@ public class SynchronizedCounter {
 
     private volatile int value;
 
-    public void increment(){
+    public synchronized void increment(){
         value++;
     }
 
-    public void decrement(){
+    public synchronized void decrement(){
         value--;
     }
 

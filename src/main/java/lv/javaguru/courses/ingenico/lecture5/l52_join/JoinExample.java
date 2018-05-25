@@ -10,9 +10,10 @@ public class JoinExample {
         Thread sendNotifications = new Thread(() -> simulateSlowMethod(3000, "send notifications"));
         updateAllUsers.start();
         sendNotifications.start();
-//        updateAllUsers.join();
-//        sendNotifications.join();
+        updateAllUsers.join();
+        sendNotifications.join();
         log.info("do something after all operations");
+
     }
 
     static void simulateSlowMethod(long time, String operation){

@@ -3,6 +3,8 @@ package lv.javaguru.courses.ingenico.lecture5.l54_synchronized.s3_waitnotify;
 
 import lombok.extern.slf4j.Slf4j;
 import lv.javaguru.courses.ingenico.lecture5.commoncode.Message;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Queue;
 import java.util.UUID;
@@ -10,6 +12,8 @@ import java.util.concurrent.TimeUnit;
 
 @Slf4j
 public class Consumer implements Runnable {
+
+    private static final Logger logger = LoggerFactory.getLogger(Consumer.class);
 
     private final Queue<Message> messageQueue;
 
@@ -36,8 +40,10 @@ public class Consumer implements Runnable {
                 messageQueue.wait();
             }
             Message message = messageQueue.poll();
-            log.debug("consumed : {}", message.getPayload());
-            messageQueue.notifyAll();
+            if (message != null) {
+                log.debug("consumed : {}", message.getPayload());
+                messageQueue.notifyAll();
+            }
         }
     }
 }
