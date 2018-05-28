@@ -17,7 +17,7 @@ public class ResuableThreadMain {
         pool.add(() -> {
             try {
                 System.out.println("pool 1");
-                TimeUnit.SECONDS.sleep(1);
+                TimeUnit.SECONDS.sleep(10);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -25,12 +25,12 @@ public class ResuableThreadMain {
         pool.add(() -> {
             try {
                 System.out.println("pool 2");
-                TimeUnit.SECONDS.sleep(1);
+                TimeUnit.SECONDS.sleep(10);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
         });
-        TimeUnit.SECONDS.sleep(3);
+        TimeUnit.SECONDS.sleep(30);
         pool.terminateImmediately();
     }
 

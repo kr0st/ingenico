@@ -48,9 +48,22 @@ public class ReusableThread extends Thread {
             if (isInterrupted()) {
                 throw new InterruptedException();
             }
-            semaphore.acquire();
+            tryAcquireSemaphore();
             runnable.run();
             runnable = null;
+            semaphore.release();
+            tryReleaseSemaphore();
+        }
+    }
+
+    private void tryAcquireSemaphore() throws InterruptedException{
+        if (semaphore != null){
+            semaphore.acquire();
+        }
+    }
+
+    private void tryReleaseSemaphore(){
+        if (semaphore != null){
             semaphore.release();
         }
     }
