@@ -3,7 +3,7 @@ package lv.javaguru.courses.ingenico.lecture6.hometask.solution;
 import java.math.BigInteger;
 import java.util.concurrent.ForkJoinPool;
 
-public class Main {
+public class GeneratorMain {
 
     public static void main(String[] args) {
         ForkJoinPool forkJoinPool = ForkJoinPool.commonPool();
