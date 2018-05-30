@@ -1,25 +1,25 @@
 [
   {
     "id": "7b834051-bd02-48cd-8051-9ddadf5d2613326479769",
-    "cardId": "37d37f30-5da0-4821-b554-fb39f052d96c",
+    "card": "37d37f30-5da0-4821-b554-fb39f052d96c",
     "beneficiaryAccount": "LVSMSWIFT068",
     "amount": 65.24
   },
   {
     "id" : "cc1bc710-399d-4aee-b1d1-2109d04e5f6c",
-    "cardId" : "37d37f30-5da0-4821-b554-fb39f052d96c",
+    "card" : "37d37f30-5da0-4821-b554-fb39f052d96c",
     "beneficiaryAccount" : "LVSMSWIFT068266770330",
     "amount" : 5.01
   },
   {
     "id" : "090ed7e8-7a39-4048-8a5d-719e93771363",
-    "cardId" : "37d37f30-5da0-4821-b554-fb39f052d96c",
+    "card" : "37d37f30-5da0-4821-b554-fb39f052d96c",
     "beneficiaryAccount" : "LVSMSWIFT068326479769",
     "amount" : 88.5
   },
   {
     "id" : "e4121fd3-fe5b-4016-958b-2ec37dcb92f2",
-    "cardId" : "37d37f30-5da0-4821-b554-fb39f052d96c",
+    "card" : "37d37f30-5da0-4821-b554-fb39f052d96c",
     "beneficiaryAccount" : "LVSMSWIFT068266770330",
     "amount" : 152.54
   }

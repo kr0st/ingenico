@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 public class Transaction {
 
     private String id;
-    private String cardId;
+    private String card;
     private String beneficiaryAccount;
     private BigDecimal amount;
 
