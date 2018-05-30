@@ -1,0 +1,41 @@
+Task :
+
+implement CardTransactionService
+
+Link for all http requests = "http://www.mocky.io/v2/{id}" where id you have to change for each request
+1. get links via "GET {id} = 5b0e42cd3200005300c19948"
+    - you will receive json with 2 link ids : transactions and cards
+
+2. in paralalel :
+    - get list of cards via "GET" using link id from from 1. response
+    - get list of last transactions via "GET" using link id from from 2. response
+
+3. then combine results into List<CardLastTransactions>
+
+4. exceptionally : log and return empty List
+
+
+How-To :
+CompletableFuture Tutorial https://www.callicoder.com/java-8-completablefuture-tutorial/
+
+Parsing json :
+1. add library to build.gradle http://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind/2.9.5
+
+2. refresh gradle project if auto-import disabled
+
+3. Code
+
+    public static void main(String[] args) throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        File file = new File("here your path to cards.json");
+        CollectionType collectionType = TypeFactory.defaultInstance()
+                                                   .constructCollectionType(ArrayList.class, Card.class);
+        List<Card> cards = objectMapper.readValue(file, collectionType);
+        System.out.println(cards);
+    }
+
+-> there are a lot of methods to read json from : input stream, byte array, string, file, reader ...
+
+-> when json is not array you write :
+       Card cards = objectMapper.readValue(json, Card.class);
+       without type constructing

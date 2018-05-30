@@ -49,10 +49,13 @@ public class ReusableThread extends Thread {
                 throw new InterruptedException();
             }
             tryAcquireSemaphore();
-            runnable.run();
-            runnable = null;
-            semaphore.release();
-            tryReleaseSemaphore();
+            try {
+                runnable.run();
+                runnable = null;
+                semaphore.release();
+            } finally {
+                tryReleaseSemaphore();
+            }
         }
     }
 

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "37d37f30-5da0-4821-b554-fb39f052d96c",
+    "pan": "************6548",
+    "status": "ACTIVE",
+    "expirationYear": 20,
+    "expirationMonth": 6
+  },
+  {
+    "id": "e4121fd3-fe5b-4016-958b-2ec37dcb92f2",
+    "pan": "************9855",
+    "status": "ACTIVE",
+    "expirationYear": 19,
+    "expirationMonth": 7
+  },
+  {
+    "id": "db2b6008-97e9-41ce-bc9c-21b0e93aa366",
+    "pan": "************5577",
+    "status": "BLOCKED",
+    "expirationYear": 20,
+    "expirationMonth": 2
+  }
+]
