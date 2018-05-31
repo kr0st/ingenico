@@ -10,24 +10,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.UUID;
 import java.util.concurrent.RecursiveTask;
 
 @Slf4j
 public class RandomBytesGenerator extends RecursiveTask<byte[]> {
-
-    /*  <pre> {@code
- * class Fibonacci extends RecursiveTask<Integer> {
- *   final int n;
- *   Fibonacci(int n) { this.n = n; }
- *   Integer compute() {
- *     if (n <= 1)
- *       return n;
- *     Fibonacci f1 = new Fibonacci(n - 1);
- *     f1.fork();
- *     Fibonacci f2 = new Fibonacci(n - 2);
- *     return f2.compute() + f1.join();
- *   }
- */
 
     private static final String url = "http://httpbin.org/bytes/";
 

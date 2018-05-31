@@ -5,14 +5,16 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 @Slf4j
 public class CompletableFutureUsage {
 
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
+    public static void main(String[] args){
 
         CompletableFuture<String> op1 = CompletableFuture.supplyAsync(() -> longOperation11())
                                                          .thenApply(result -> longOperation12(result));
+
         CompletableFuture<String> op2 = CompletableFuture.supplyAsync(() -> longOperation2());
 
         CompletableFuture<String> op3 = op1
@@ -21,7 +23,9 @@ public class CompletableFutureUsage {
 
         CompletableFuture<Void> result = op3.thenAccept(result3 -> updateUI(result3));
 
-        result.get();
+        result.join();
+
+        result.completeExceptionally(new TimeoutException());
     }
 
     private static String longOperation11() {
