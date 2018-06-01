@@ -49,7 +49,7 @@ public class AccountRepositoryTest {
     private AccountRepository repository = new AccountRepository(dataSource);
 
     @Test
-    public void shouldSaveNewAccount() throws SQLException {
+    public void shouldSaveNewAccount() throws Exception {
         repository.saveAccount(new Account("john", "email@email.com"));
         ResultSet resultSet = dataSource.getConnection()
                                         .prepareStatement("SELECT * FROM accounts;")

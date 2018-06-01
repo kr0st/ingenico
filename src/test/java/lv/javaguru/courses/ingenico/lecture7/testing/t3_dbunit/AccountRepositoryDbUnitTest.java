@@ -23,7 +23,7 @@ import java.sql.Statement;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class AccountRepositoryDbUnitTest extends BaseDBUnitTest {
+public class AccountRepositoryDbUnitTest {
 
     private static Server server;
 
@@ -65,7 +65,9 @@ public class AccountRepositoryDbUnitTest extends BaseDBUnitTest {
         ITable actualTable = databaseDataSet.getTable("accounts");
 
         //load expected state
-        IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(new File("/Users/olegssedacs/projects/ingenico/src/test/resources/dbunit/accounts_expected.xml"));
+        ClassLoader classLoader = getClass().getClassLoader();
+        File datasetFile = new File(classLoader.getResource("dbunit/accounts_expected.xml").getFile());
+        IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(datasetFile);
         ITable expectedTable = expectedDataSet.getTable("accounts");
 
         // Assert actual database table match expected table
