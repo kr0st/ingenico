@@ -28,8 +28,6 @@ import static org.mockito.ArgumentMatchers.eq;
 @RunWith(MockitoJUnitRunner.class)
 public class CommissionServiceAnnotationsTest {
 
-
-
     @Mock
     private AccountService accountService;
 
@@ -74,6 +72,7 @@ public class CommissionServiceAnnotationsTest {
         Mockito.when(accountService.findFixedCommission(anyString())).thenReturn(Optional.of(commission));
 
         commissionService.applyFixedCommission("acc",amount);
+
         Mockito.verify(calculator).add(captor.capture());
         List<BigDecimal> allValues = captor.getAllValues();
         assertThat(commission, in(allValues));
