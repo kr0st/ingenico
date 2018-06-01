@@ -1,6 +1,5 @@
 package lv.javaguru.courses.ingenico.lecture6.hometask.solution;
 
-import com.sun.tools.javac.util.ArrayUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.HttpClient;

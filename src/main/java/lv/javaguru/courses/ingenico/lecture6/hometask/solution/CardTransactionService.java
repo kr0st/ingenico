@@ -86,6 +86,7 @@ public class CardTransactionService {
 
     private Map<Card, List<Transaction>> mapCardsWithTransactions(List<Card> cards, List<Transaction> transactions) {
         return transactions.stream()
+                           .parallel()
                            .collect(Collectors.groupingBy(
                                    transaction -> cards.stream()
                                                        .filter(card -> card.getId().equals(transaction.getCard()))
@@ -96,7 +97,7 @@ public class CardTransactionService {
 
     private List<CardLastTransactions> reduceCardsWithTransactions(Map<Card, List<Transaction>> cardsWithTransactions) {
         return cardsWithTransactions.entrySet()
-                                    .stream()
+                                    .parallelStream()
                                     .map(entry -> convertOneCardWithTransactions(entry.getKey(), entry.getValue()))
                                     .collect(Collectors.toList());
     }
@@ -112,6 +113,7 @@ public class CardTransactionService {
 
     private BigDecimal sumTotalTransactionAmount(List<Transaction> transactions) {
         return transactions.stream()
+                           .parallel()
                            .map(Transaction::getAmount)
                            .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
