@@ -1,6 +1,7 @@
 package lv.javaguru.courses.ingenico.lecture7.testing.t1_mocks;
 
 import lv.javaguru.courses.ingenico.lecture7.testing.t0_simpletest.Calculator;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -24,6 +25,7 @@ public class CommissionServiceTest {
 
     private AccountService accountService = Mockito.mock(AccountService.class);
     private Calculator calculator = Mockito.mock(Calculator.class);
+
     private CommissionService commissionService = new CommissionService(calculator, accountService);
 
     private ArgumentCaptor<BigDecimal> captor = ArgumentCaptor.forClass(BigDecimal.class);
@@ -31,15 +33,19 @@ public class CommissionServiceTest {
     @Rule
     public ExpectedException expectedException = ExpectedException.none();
 
+
     @Test
     public void shouldReturnSumOfAmountAndCommission() throws Exception {
         BigDecimal commission = new BigDecimal("20");
         BigDecimal amount = new BigDecimal("1");
         String accountNumber = "no123";
 
-        Mockito.when(accountService.findFixedCommission(accountNumber)).thenReturn(Optional.of(commission));
+        Mockito.when(accountService.findFixedCommission("1")).thenReturn(Optional.of(commission));
+
         Mockito.when(calculator.add(commission, amount)).thenReturn(new BigDecimal("21"));
+
         BigDecimal result = commissionService.applyFixedCommission("no123", amount);
+
         assertThat(result, closeTo(new BigDecimal("21"), new BigDecimal("0.00000001")));
     }
 

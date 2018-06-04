@@ -4,10 +4,12 @@ import org.junit.FixMethodOrder;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import org.junit.rules.Timeout;
 import org.junit.runners.MethodSorters;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.DoubleAccumulator;
@@ -23,8 +25,12 @@ public class CalculatorTest {
     @Rule
     public ExpectedException expectedException = ExpectedException.none();
 
+    @Rule
+    public Timeout timeout = new Timeout(1, TimeUnit.SECONDS);
+
     @Test
     public void shouldAddBytes() throws Exception {
+        Thread.sleep(1500); // timeout exception will be thrown
         byte result = calculator.add((byte)1, (byte)2, (byte)3);
         assertEquals(6, result);
     }
@@ -82,7 +88,7 @@ public class CalculatorTest {
     @Test
     public void shouldAddBigDecimals() throws Exception {
         BigDecimal result = calculator.add(new BigDecimal("1.1"), new BigDecimal("2.1"));
-        assertThat(result, closeTo(new BigDecimal("3.2"), new BigDecimal("0.0001")));
+        assertThat(result, closeTo(new BigDecimal("3.2"), new BigDecimal("0.000001")));
     }
 
     // simple way to check exceptional case.
