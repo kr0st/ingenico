@@ -1,0 +1,9 @@
+<aspectj>
+    <aspects>
+        <aspect name="lv.javaguru.courses.ingenico.lecture8.aspects.MonitoredAspect"/>
+    </aspects>
+    <weaver options="-verbose -showWeaveInfo -debug">
+        <!-- only weave classes in our application-specific packages -->
+        <include within="lv.javaguru.courses.ingenico.lecture8.aspects.*"/>
+    </weaver>
+</aspectj>
